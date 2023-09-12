@@ -40,8 +40,37 @@ $hotels = [
 
 ];
 
-?>
 
+//cosi si tampa tutto l'arrey
+var_dump($hotels);
+
+//cosi stampio l'arrey a chiave 3 
+var_dump($hotels[3]);
+
+
+//cosi stampo la chiave name nella chiave 2 di $hotels
+var_dump($hotels[2]['name']);
+
+
+$invio = "invio";
+
+
+//foreach
+$chiavi = [
+    'PAOLO',
+    'MARIO',
+    'FRANCESCA',
+
+];
+
+//foreach 
+foreach ($chiavi as $chiave) {
+    echo $chiave[0] . " " . $chiave[1] . " " . $chiave[2];                  //perche prende solo le prime 3 lettere dell'arrey ? . fatto a caso 
+    //echo $chiave;
+    var_dump($chiave);
+};
+?>
+<!-- [0 'name'] -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,62 +89,48 @@ $hotels = [
 
 <body>
 
+
+    <!-- <div class="container">
+        <div class="row">
+            <form action="ricevitore.php" method="get">
+                <input type="text">
+                <button class="btn btn-primary"><?php echo $invio ?></button>
+            </form>
+        </div>
+    </div> -->
+
+
     <div class="container">
         <div class="row">
-            <table class="table mio-lable">
-                <thead>
-                    <tr>
-                        <th scope="col">name</th>
-                        <th scope="col">description</th>
-                        <th scope="col">parking</th>
-                        <th scope="col">vote</th>
-                        <th scope="col">distance to center</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td><?php ?></td>
-                        <td>Otto</td>
-                        <td>bb</td>
-                        <td>aa</td>
-                        
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        
-                    </tr>
-                    <tr>
-                        <th scope="">3</th>
-                        <td colspan="">Larry the Bird</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        
-                    </tr>
-                    <tr>
-                        <th scope="">4</th>
-                        <td colspan="">Larry the Bird</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        
-                    </tr>
-                    <tr>
-                        <th scope="">5</th>
-                        <td colspan="">Larry the Bird</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        
-                    </tr>
-                </tbody>
-            </table>
+            <ul class="list-group list-group-horizontal">
+                <?php  foreach($hotels as $hotel) { ?>
+                <li class="list-group-item"><?php echo $hotel['name']?></li>
+                <?php } ?>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+            <?php  foreach($hotels as $hotel) { ?>
+                <li class="list-group-item"><?php echo $hotel['description']?></li>
+                <?php } ?>
+
+            </ul>
+            <ul class="list-group list-group-horizontal-md">
+            <?php  foreach($hotels as $hotel) { ?>
+                <li class="list-group-item"><?php echo $hotel['parking']?></li>
+                <?php } ?>
+
+            </ul>
+            <ul class="list-group list-group-horizontal-lg">
+            <?php  foreach($hotels as $hotel) { ?>
+                <li class="list-group-item"><?php echo $hotel['vote']?></li>
+                <?php } ?>
+
+            </ul>
+            <ul class="list-group list-group-horizontal-xl">
+            <?php  foreach($hotels as $hotel) { ?>
+                <li class="list-group-item"><?php echo $hotel['distance_to_center']?></li>
+                <?php } ?>
+
+            </ul>
         </div>
     </div>
 </body>
